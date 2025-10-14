@@ -8,20 +8,13 @@ for /F "tokens=* delims=" %%a in ('Type "%File%"') do (
 )
 
 For /L %%i in (1,1,%Count%) Do (
-    echo "!output[%%i]!"
     FOR /F "tokens=1-6 delims=," %%A IN ("!output[%%i]!") DO (
-    echo customer_id: %%A
-    echo name: %%B
-    echo email: %%C
-    echo age: %%D
-    echo city: %%E
-    echo subscription_type: %%F
+    if %%A LEQ 0 echo INCORRECT "!output[%%i]!"
+    if %%B LEQ 0 echo INCORRECT "!output[%%i]!"
+    if %%C LEQ 0 echo INCORRECT "!output[%%i]!"
+    if %%D LEQ 0 echo INCORRECT "!output[%%i]!"
+    if %%E LEQ 0 echo INCORRECT "!output[%%i]!"
+    if %%F LEQ 0 echo INCORRECT "!output[%%i]!"
 )
 )
 
-Exit
-::*******************************************************
-:Action
-echo We treat this line : %1
-exit /b
-::*******************************************************
