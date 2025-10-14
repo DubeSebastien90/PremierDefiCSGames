@@ -7,6 +7,8 @@ for /F "tokens=* delims=" %%a in ('Type "%File%"') do (
          Set "output[!count!]=%%a"     
 )
 
+:: LESSGO toutes ces lignes sont INCORECTES j'espere que t'aimes ça
+
 For /L %%i in (1,1,%Count%) Do (
     FOR /F "tokens=1-6 delims=," %%A IN ("!output[%%i]!") DO (
     if %%A LEQ 0 echo INCORRECT "!output[%%i]!"
